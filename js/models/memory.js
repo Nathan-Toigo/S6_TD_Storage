@@ -31,7 +31,6 @@ export class Memory{
     }
 
     toData(){
-        
         const JSONcards = [];
         for(let i = 0;i<this.#cards.length;i++){
            JSONcards[i] = this.#cards[i].toData();
@@ -41,5 +40,14 @@ export class Memory{
         };
 
         return memoryBasicObject;
+    }
+
+    fromData(memoryBasicObject){
+        this.#cards = [];
+        const arrayCards = memoryBasicObject["cards"];
+        for(let i=0;i<arrayCards.length;i++){
+            const card = new Card(arrayCards[i]["value"]);
+            this.#cards.push(card);
+        }
     }
 }
