@@ -14,8 +14,10 @@ export class Memory{
         for(let i=0;i<pairsNumber;i-=-1){
             const codeEmote = 0x1F90C + i;
             const card = new Card(codeEmote);
-            this.#cards.push(card);
-            this.#cards.push(card);
+            const randomPosition = Math.floor(Math.random() * this.#cards.length);
+            this.#cards.splice(randomPosition,0,card);
+            const randomPosition2 = Math.floor(Math.random() * this.#cards.length);
+            this.#cards.splice(randomPosition2,0,card);
         }
     }
 
