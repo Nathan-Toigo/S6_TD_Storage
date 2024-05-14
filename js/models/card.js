@@ -6,5 +6,12 @@ export class Card{
         this.#value = value;
     }
 
-    get value(){ return this.#value;}
+    get Value(){ return this.#value;}
+
+    toData(){
+        const cardBasicObject = {
+            "value": this.#value,
+            };
+        return cardBasicObject;
+    }
 }

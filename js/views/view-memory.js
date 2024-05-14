@@ -22,7 +22,7 @@ export class ViewMemory extends Observer
         const cardsHTML = document.getElementsByClassName("cards")[0];
         const divHTML = document.createElement("div");
         divHTML.classList.add("card");
-        divHTML.innerHTML = "&#x" + card.value.toString(16);
+        divHTML.innerHTML = "&#x" + card.Value.toString(16);
         cardsHTML.appendChild(divHTML);
         divHTML.addEventListener("click",()=>{
             this.#controllerMemory.createCard();

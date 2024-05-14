@@ -29,4 +29,17 @@ export class Memory{
     getCards(index){
         return this.#cards[index];
     }
+
+    toData(){
+        
+        const JSONcards = [];
+        for(let i = 0;i<this.#cards.length;i++){
+           JSONcards[i] = this.#cards[i].toData();
+        }
+        const memoryBasicObject = {
+            "cards" : JSONcards
+        };
+
+        return memoryBasicObject;
+    }
 }
