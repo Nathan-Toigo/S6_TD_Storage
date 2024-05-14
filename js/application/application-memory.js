@@ -10,6 +10,7 @@ export class ApplicationMemory
     {
         this.#initControllers();
         this.#initViews();
+        this.#controllerMemory.createCard();
     }
 
     #initControllers()
