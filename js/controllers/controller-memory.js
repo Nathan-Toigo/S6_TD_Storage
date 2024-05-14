@@ -1,22 +1,22 @@
 import { Card } from "../models/card.js";
+import { Memory } from "../models/memory.js";
 import { Notifier } from "../patterns/notifier.js";
 
 export class ControllerMemory extends Notifier
 {
-    #card;
+    #memory;
 
-    
+    get Memory(){return this.#memory;}
 
     constructor()
     {
         super();
+        this.#memory = new Memory();
     }
 
-    createCard(){
-        const randm = Math.floor(Math.random() * 243) + 0x1F90C;
-        this.#card = new Card(randm);
-        this.notify();
+    newGame(){
+        this.#memory.newGame(10);
+        this.notify()
     }
 
-    get Card(){return this.#card;}
 }

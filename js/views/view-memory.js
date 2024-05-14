@@ -15,19 +15,24 @@ export class ViewMemory extends Observer
 
     notify()
     {
-        this.displayCard();
+        this.displayCards();
     }
 
-    displayCard(){
-        const card = this.#controllerMemory.Card;
+    displayCard(card){
         const cardsHTML = document.getElementsByClassName("cards")[0];
         const divHTML = document.createElement("div");
         divHTML.classList.add("card");
         divHTML.innerHTML = "&#x" + card.value.toString(16);
         cardsHTML.appendChild(divHTML);
-
         divHTML.addEventListener("click",()=>{
             this.#controllerMemory.createCard();
         });
+    }
+
+    displayCards(){
+        const cards = this.#controllerMemory.Memory.Cards;
+        for(let i=0;i< cards.length;i++){
+            this.displayCard(cards[i]);
+        }
     }
 }
